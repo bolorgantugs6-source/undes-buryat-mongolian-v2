@@ -1,0 +1,2 @@
+const stories=require('../data/reviewed_stories.json');
+module.exports=function(req,res){res.setHeader('Cache-Control','public, max-age=60');if(req.method!=='GET')return res.status(405).json({error:'GET required'});return res.status(200).json({items:stories.filter(s=>s.status==='reviewed'&&s.rights_verified===true&&s.body_buryat&&s.body_mongolian&&s.reviewer&&s.translator&&s.license).slice(0,100)})};

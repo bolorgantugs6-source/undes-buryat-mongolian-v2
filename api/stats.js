@@ -1,0 +1,2 @@
+const words=require('../data/reviewed_dictionary.json');const stories=require('../data/reviewed_stories.json');
+module.exports=function(req,res){const approved=words.filter(x=>x.status==='reviewed'&&x.reviewer&&x.source&&x.license).length;const publishedStories=stories.filter(s=>s.status==='reviewed'&&s.rights_verified===true&&s.body_buryat&&s.body_mongolian&&s.reviewer&&s.translator&&s.license).length;res.status(200).json({entries:words.length,approved,publishedStories,monolingualStoryDrafts:63})};

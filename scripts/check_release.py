@@ -1,0 +1,3 @@
+import json,pathlib
+root=pathlib.Path(__file__).resolve().parents[1];ds=json.loads((root/'data/story_drafts.json').read_text());wd=json.loads((root/'data/reviewed_dictionary.json').read_text());bs=json.loads((root/'data/reviewed_stories.json').read_text());assert len(ds)==63 and len({s['id'] for s in ds})==63
+print('Original Mongolian story drafts:',len(ds));print('Reviewed bilingual dictionary entries:',sum(1 for x in wd if x.get('status')=='reviewed' and x.get('reviewer') and x.get('license')));print('Reviewed rights-cleared bilingual stories:',sum(1 for x in bs if x.get('status')=='reviewed' and x.get('rights_verified') and x.get('body_buryat') and x.get('reviewer')))

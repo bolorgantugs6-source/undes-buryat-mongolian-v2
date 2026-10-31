@@ -1,0 +1,12 @@
+{
+  "name": "undes-buryat-mongolian",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "check": "node --check api/translate.js && node --check api/dictionary.js && node --check api/stories.js && node --check api/stats.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
